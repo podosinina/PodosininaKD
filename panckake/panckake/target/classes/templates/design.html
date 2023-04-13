@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+<head>
+    <title>Panckake</title>
+    <link rel="stylesheet" th:href="@{/styles.css}"/>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<h1>Design Your Panckake</h1>
+<img th:src="@{/static/images/panckakes.jpg}" />
+
+<form th:object="${panckake}" method="post">
+        <span class="validationError"
+              th:if="${#fields.hasErrors('ingredients')}"
+              th:errors="*{ingredients}">Ingredient Error</span>
+
+    <div class="grid">
+        <div class="ingredient-group" id="doughs">
+            <h4>Pick Your Dough</h4>
+            <div th:each="ingredient : ${dough}">
+                <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+        <div class="ingredient-group" id="meats">
+            <h4>Pick Your Meat</h4>
+            <div th:each="ingredient : ${meat}">
+                <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+        <div class="ingredient-group" id="veggies">
+            <h4>Pick Your Veggies</h4>
+            <div th:each="ingredient : ${veggies}">
+                <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+        <div class="ingredient-group" id="sauces">
+            <h4>Pick Your Sauces</h4>
+            <div th:each="ingredient : ${sauces}">
+                <input type="checkbox" th:field="*{ingredients}" th:value="${ingredient.id}"/>
+                <span th:text="${ingredient.name}">INGREDIENT</span><br/>
+            </div>
+        </div>
+        <input type="text" th:field="*{name}">
+        <button>Создай Блинчик</button>
+    </div>
+</form>
+</body>
+
+</html>
