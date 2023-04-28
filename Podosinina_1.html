@@ -1,0 +1,36 @@
+
+<meta charset="utf-8">
+<script>
+var number = parseInt(prompt("1. Введите число:"));
+alert("1. Ваше число: " + number);
+
+var number2 = parseInt(prompt("2.0 Введите число:"));
+var number3 = parseInt(prompt("2.0 Введите число:"));
+var result = number2+number3;
+alert("2.0 Сумма введенных чисел: " + result);
+
+var number2 = parseInt(prompt("2.1 Введите число:"));
+var number3 = parseInt(prompt("2.1 Введите число:"));
+var result = number2-number3;
+alert("2.1 Разница введенных чисел: " + result);
+
+var number2 = parseInt(prompt("2.2 Введите число:"));
+var number3 = parseInt(prompt("2.2 Введите число:"));
+var result = number2*number3;
+alert("2.2 Произведение введенных чисел: " + result);
+
+var number2 = parseInt(prompt("2.2 Введите число:"));
+var number3 = parseInt(prompt("2.2 Введите число:"));
+var result = number2/number3;
+alert("2.2 Частное введенных чисел: " + result);
+
+var number = parseInt(prompt("3. Задумайте число:"));
+alert("Умножьте Ваше число на 2 и прибавьте к полученному результату 7");
+var result = number*2+7;
+alert("3. Ваше число: " + result);
+
+var name = prompt("4. Введите Ваше имя:");
+var birthdate= new Date (prompt ('Введите дату Вашего рождения yyyy-mm-dd',''));
+var start = new Date();
+alert("4. " + name + ": " + (start.getFullYear()-birthdate.getFullYear()));
+</script>
