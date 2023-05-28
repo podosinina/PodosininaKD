@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <h3>2. Проверка палиндромов</h3>
+  <form>
+    <label>
+      Введите слово или фразу:
+      <input type="text" id="input">
+    </label>
+    <button type="button" onclick="checkPalindrome()">Проверить</button>
+  </form>
+  <p id="result"></p>
+
+
+<h3>3. Замена отриц. чисел на их квадрат</h3>
+<p id="massiv"></p>
+<p id="otrits"></p>
+
+
+<h3>4. Приветствие пользователя</h3>
+<p id="greeting"></p>
+
+<h3>5. Синтаксис класса</h3>
+<p id="chat"></p>
+
+<h3>6. Перевернутое имя</h3>
+<p id="reverseName"></p>
+
+<script>
+
+//Задача 2
+function isPalindrome(str) {
+str = str.replace(/\s/g, "").toLowerCase();
+return str === str.split("").reverse().join("");
+}
+
+function checkPalindrome() {
+const input = document.getElementById("input").value;
+const result = document.getElementById("result");
+if (isPalindrome(input)) {
+result.textContent = `"${input}" - это палиндром!`;
+} else {
+result.textContent = `"${input}" - это не палиндром.`;
+}
+}
+
+//Задача 3
+let rand = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min,
+    arr = [...new Array(15)].map(e => rand(-10, 30));
+    arr2 = arr.filter(e => e > 0),
+    sum = arr.reduce((a, b) => a + b, 0),
+    
+    arr3 = [];
+    arr.forEach(function(item, i, arr) {
+    if(item < 0){arr3[i]=item**2;
+    }else{arr3[i]=item;};
+    });
+
+const massiv = document.getElementById("massiv");
+massiv.textContent = `3.0. Массив с 15 числами = ${arr}`;
+const otrits = document.getElementById("otrits");
+otrits.textContent = `3. Замена отриц. чисел на их квадрат = ${arr3}`;
+
+//Задача 4
+class User {
+  constructor(name) {
+    this.name = name;
+  }
+
+  sayHello() {
+    const greeting = document.getElementById("greeting");
+    greeting.textContent = `Привет, ${this.name}!`;
+  }
+}
+
+const user1 = new User("Иван");
+user1.sayHello();
+
+const user2 = new User("Ольга");
+user2.sayHello();
+
+
+//Задача 5
+class Chat {
+  constructor(userName) {
+    this.userName = userName;
+  }
+
+  showMessage() {
+    let message = `Привет, ${this.userName}`;
+    const chat = document.getElementById("chat");
+    chat.textContent = message;
+  }
+}
+
+let chat = new Chat('Вася');
+chat.showMessage();
+
+
+//Задача 6
+class NameReverser {
+  constructor(name) {
+    this.name = name;
+  }
+
+  reverse() {
+    let reversedName = '';
+    for (let i = this.name.length - 1; i >= 0; i--) {
+      reversedName += this.name[i];
+    }
+    const reverseName = document.getElementById("reverseName");
+    reverseName.textContent = reversedName;
+  }
+}
+
+let nameReverser = new NameReverser('Kira');
+nameReverser.reverse();
+
+
+</script>
+
+
+</body>
+</html>
+
+
