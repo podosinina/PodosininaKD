@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+
+<script>
+
+text = '';
+
+//Задача 1
+let user = {
+  name: "Джон",
+  age: 30,
+
+  sayHi() {
+    alert(this.name);
+  }
+};
+user.sayHi(); 
+
+
+
+//Задача 2
+let customer2 = {
+  name: "Кира",
+  surname: "Подосинина",
+  age: 19,
+  phone: "89686727353",
+  email: "kpodosinina@mail.ru",
+};
+text += `2. Информация о покупателе:\n Имя: ${customer2.name}\n Возраст: ${customer2.age}\n Телефон: ${customer2.phone}\n`;
+
+//Задача 3
+let customer31 = {
+  name: "Лена",
+  age: 24,
+  email: "Lenochka@mail.ru",
+  city: "Москва",
+};
+let customer32 = {
+  name: "Саша",
+  age: 40,
+  email: "dsfghjka@mail.ru",
+  city: "Тверь",
+};
+let order1 = {
+  id: 1,
+  items: ["Пицца", "Газировка"],
+  total: 500,
+  user: customer31
+};
+let order2 = {
+  id: 2,
+  items: ["Суши", "Чай"],
+  total: 800,
+  user: customer32
+};
+let restaurant1 = {
+  name: "Пиццерия",
+  address: "ул. Пушкина, 10",
+  orders: [order1]
+};
+
+let restaurant2 = {
+  name: "Суши-бар",
+  address: "ул. Лермонтова, 5",
+  orders: [order2]
+};
+
+text += `3.1 Информация о пользователе:\n Имя: ${customer31.name}\n Заказ: ${order1.items}\n Адрес ресторана: ${restaurant1.address}\n`;
+text += `3.2 Информация о пользователе:\n Имя: ${customer32.name}\n Заказ: ${order2.items}\n Адрес ресторана: ${restaurant2.address}\n`;
+
+//Задача 4
+function Group(name) {
+  this.name = name;
+  this.isAdmin = false;
+}
+let group = new Group("ПИ21-2в");
+text += `4. Группа:\n Имя: ${group.name}\n `;
+
+//Задача 5
+function Student(name) {
+  this.name = name;
+}
+let name_student = new Student("Ксюша");
+text += `5. Студент:\n Меня зовут ${name_student.name} :)\n `;
+
+
+
+document.body.insertAdjacentHTML('afterBegin', `<pre>${text}</pre>`);
+
+</script>
+
+</body>
+</html>
